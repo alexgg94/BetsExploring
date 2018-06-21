@@ -34,10 +34,9 @@ def downloadFiles():
             for season in seasons:
                 file_ori_url = main_base_url + season + '/' + row['file'] + '.csv'
                 file_dest_url = main_dest_base_url + row['country'] + '/' + row['competition'] + "_" + season + ".csv"
-                print
-                print Fore.BLUE + "Reading: " + row['country'], row['file'], row['competition'], season
-                print Fore.GREEN + file_ori_url 
-                print Fore.GREEN + "-> " + file_dest_url
+                print(Fore.BLUE + "Reading: " + row['country'], row['file'], row['competition'], season)
+                print(Fore.GREEN + file_ori_url) 
+                print(Fore.GREEN + "-> " + file_dest_url)
 
                 if not os.path.exists(main_dest_base_url + row['country']):
                     os.makedirs(main_dest_base_url + row['country'])
@@ -46,18 +45,14 @@ def downloadFiles():
                     wget.download(file_ori_url, file_dest_url)
                        
                 except:
-                    print Fore.RED + "Could not download " + file_ori_url 
-                    
-                if not validateFile(file_dest_url):
-                    os.remove(file_dest_url)
+                    print(Fore.RED + "Could not download " + file_ori_url) 
                     
         else:
             file_ori_url = extra_base_url + row['file'] + '.csv'
             file_dest_url = extra_dest_base_url + row['country'] + '/' + row['competition'] + ".csv"
-            print
-            print Fore.BLUE + "Reading: " + row['country'], row['file'], row['competition']
-            print Fore.GREEN + file_ori_url 
-            print Fore.GREEN + "-> " + file_dest_url
+            print(Fore.BLUE + "Reading: " + row['country'], row['file'], row['competition'])
+            print(Fore.GREEN + file_ori_url) 
+            print(Fore.GREEN + "-> " + file_dest_url)
 
             if not os.path.exists(extra_dest_base_url + row['country']):
                 os.makedirs(extra_dest_base_url + row['country'])
@@ -65,22 +60,9 @@ def downloadFiles():
             try:
                 wget.download(file_ori_url, file_dest_url)
             except:
-                print Fore.RED + "Could not download " + file_ori_url 
+                print(Fore.RED + "Could not download " + file_ori_url) 
                 
-            if not validateFile(file_dest_url):
-                    os.remove(file_dest_url)
-    print
-    print Fore.YELLOW + "Download finished"
-                
-def validateFile(file_dest_url):
-    with open(file_dest_url) as file_content:
-        line = file_content.readline()  
-        if (line[2:9] == "DOCTYPE"):
-            print 
-            print Fore.RED + "File format incorrect!"            
-            return False
-        else:
-            return True
+    print(Fore.YELLOW + "Download finished")
 
 if __name__ == '__main__':
     initFolders()
