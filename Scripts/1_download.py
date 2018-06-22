@@ -33,7 +33,7 @@ def downloadFiles():
         if row['type'] == 'M':
             for season in seasons:
                 file_ori_url = main_base_url + season + '/' + row['file'] + '.csv'
-                file_dest_url = main_dest_base_url + row['country'] + '/' + row['competition'] + "_" + season + ".csv"
+                file_dest_url = main_dest_base_url + row['country'] + '/' + row['competition'] + "/" + season + ".csv"
                 print(Fore.BLUE + "Reading: " + row['country'], row['file'], row['competition'], season)
                 print(Fore.GREEN + file_ori_url) 
                 print(Fore.GREEN + "-> " + file_dest_url)
