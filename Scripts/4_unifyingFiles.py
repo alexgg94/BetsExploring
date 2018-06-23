@@ -18,8 +18,8 @@ filetemp = "main_competitions.csv"
 colsdest = ["Country", "Competition", "Season", "Div", "Date", \
             "HomeTeam", "AwayTeam", "FTHG", "FTAG", "FTR", \
             "B365H", "B365D", "B365A","BSH","BSD","BSA",\
-            "BWH","BWD","BWA","GBH","GBD","GBA","IWH","IWD","IWA"\
-            "LBH","LBD","LBA","SJH","SJD","SJA","VCH","VCD","VCA"\
+            "BWH","BWD","BWA","GBH","GBD","GBA","IWH","IWD","IWA",\
+            "LBH","LBD","LBA","SJH","SJD","SJA","VCH","VCD","VCA",\
             "WHH", "WHD", "WHA"]
 
 # Following folders
